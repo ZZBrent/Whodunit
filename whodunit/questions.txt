@@ -1,0 +1,38 @@
+0. What’s stdint.h?
+        It is a header that contains new integer types.  These new types sizes will not vary across different systems the same way that regular integers do.
+
+1. What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+        These integer types declare a specific amount of space for the integer being used.  If the programmer has limits regarding the integer, it's best to use these to conserve space (for example, using an unsigned integer when you know it can only be positive).
+
+2. How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively?
+        BYTE: 1
+        DWORD: 4
+        LONG: 4
+        WORD: 2
+
+3. What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? Leading bytes used to identify file formats (with high probability) are generally called "magic numbers."
+        The first two bytes of any BMP file must be a WORD.
+
+4. What’s the difference between bfSize and biSize?
+        Bfsize includes the size of the headers while biSize is only the stize of the BMP image itself.
+
+5. What does it mean if biHeight is negative?
+        It means that the bitmap is top-down (so the first pixel is the top left pixel).
+
+6. What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+        The biBitCount
+
+7. Why might fopen return NULL in lines 24 and 32 of copy.c?
+        It will return NULL if the file (infile on line 24, outfile on line 32) does not exist or if permissions are wrong (like the file is "read-only").
+
+8. Why is the third argument to fread always 1 in our code?
+        The third argument specifies the number of bytes we want to read, so it needs to be set to 1 in this case because we only want to look at one byte at a time.
+
+9. What value does line 65 of copy.c assign to padding if bi.biWidth is 3?
+        3
+
+10. What does fseek do?
+        It moves the file pointer to a specific position within the file.
+
+11. What is SEEK_CUR?
+        It moves the file pointer to the given location.
